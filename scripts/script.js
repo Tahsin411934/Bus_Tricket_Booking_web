@@ -23,6 +23,10 @@ for (const seat of seats) {
         setInnerText('updateTotalPrice', 550 * count);
         setInnerText('updateGrandTotal', 550 * count);
 
+       
+        
+        updateAvailableSeat()
+
     })
 }
 
@@ -81,6 +85,12 @@ pNumber.addEventListener('keyup', function(e){
 
 
 
+function updateAvailableSeat(){
+    let available= getInnerTextById('avaiablSeat')
+    console.log();
+    setInnerText('avaiablSeat', available-1);
+
+}
 
 
 
