@@ -20,11 +20,12 @@ for (const seat of seats) {
         count++;
         console.log(count);
 
+
+        
+
         setInnerText('updateTotalPrice', 550 * count);
         setInnerText('updateGrandTotal', 550 * count);
-
-       
-        
+        setInnerText('seatCount', count);
         updateAvailableSeat()
 
     })
