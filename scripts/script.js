@@ -120,3 +120,8 @@ function getInnerTextById(id) {
     const InnerText = document.getElementById(id);
     return InnerText.innerHTML;
 }
+
+function homeFunctionAble(){
+    document.getElementById('bannerSection').classList.remove('hidden')
+    document.getElementById('couponSection').classList.remove('hidden')
+}
