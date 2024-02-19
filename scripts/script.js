@@ -3,10 +3,8 @@ let count = 0;
 let dublicateCheck=[];
 
 for (const seat of seats) {
-
-   
     seat.addEventListener("click", function (event) {
-        if (dublicateCheck.includes(seat.innerHTML)===false) {
+        if (dublicateCheck.includes(seat.innerHTML)===false && count < 4) {
             seat.classList.add("change_after_seat_click")
             console.log(seat.innerHTML);
             const addSeatPrice = document.getElementById("addSeatPrice");
@@ -35,20 +33,19 @@ for (const seat of seats) {
                 alert("You can not buy more than 4 tickets!");
             }
     
-    
-    
             console.log(dublicateCheck.includes(seat.innerHTML))
             dublicateCheck.push(seat.innerHTML);
             console.log(dublicateCheck);
             
     
         }
+       else {
+            alert("You can not buy more than 4 tickets!");
+        }
+
         
     })
 }
-
-
-
 
 
 
@@ -58,45 +55,35 @@ function couponCheck() {
     const errorMsg = document.getElementById('errorMsg')
     applyBtn.removeAttribute("disabled");
     coupon.addEventListener('keyup', function (e) {
-        //console.log(e.target.value);
-
-
         applyBtn.addEventListener('click', function () {
             if (coupon.value === 'NEW15') {
                 let new15 = parseFloat(getInnerTextById('updateGrandTotal'));
                 setInnerText('updateGrandTotal', new15 - (new15 * 0.15));
                 setInnerText('updateDiscount', new15 * 0.15);
-                coupon.value = "";
                 errorMsg.classList.add('hidden');
                 applyBtn.classList.add('hidden');
                 coupon.classList.add('hidden');
 
             }
             else if (coupon.value === 'Couple 20') {
-                let couple20 = getInnerTextById('updateGrandTotal');
+                let couple20 =parseFloat(getInnerTextById('updateGrandTotal'));
                 setInnerText('updateGrandTotal', couple20 - couple20 * 0.20);
                 setInnerText('updateDiscount', couple20 * 0.20);
-                coupon.value = "";
                 errorMsg.classList.add('hidden')
                 applyBtn.classList.add('hidden');
                 coupon.classList.add('hidden');
             }
             else {
                 setInnerText('errorMsg', 'you should enter right coupon');
+                
             }
+            coupon.value = "";
         });
-
-
-
-
-
 
     })
 
-
 }
 
-coupon.value = "";
 
 
 
@@ -109,9 +96,7 @@ pNumber.addEventListener('keyup', function (e) {
         submitBtn.removeAttribute("disabled");
     }
 })
-
-
-
+pNumber.value='';
 
 
 function updateAvailableSeat() {
