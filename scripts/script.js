@@ -6,7 +6,6 @@ for (const seat of seats) {
     seat.addEventListener("click", function (event) {
         if (dublicateCheck.includes(seat.innerHTML)===false && count < 4) {
             seat.classList.add("change_after_seat_click")
-            console.log(seat.innerHTML);
             const addSeatPrice = document.getElementById("addSeatPrice");
             const p = document.createElement("p");
             p.innerHTML = seat.innerHTML;
@@ -19,7 +18,6 @@ for (const seat of seats) {
             addSeatPrice.appendChild(p2);
     
             count++;
-            console.log(count);
     
             setInnerText('updateTotalPrice', 550 * count);
             setInnerText('updateGrandTotal', 550 * count);
@@ -33,17 +31,12 @@ for (const seat of seats) {
                 alert("You can not buy more than 4 tickets!");
             }
     
-            console.log(dublicateCheck.includes(seat.innerHTML))
-            dublicateCheck.push(seat.innerHTML);
-            console.log(dublicateCheck);
-            
+            dublicateCheck.push(seat.innerHTML);   
     
         }
        else {
             alert("You can not buy more than 4 tickets!");
-        }
-
-        
+        } 
     })
 }
 
@@ -84,7 +77,7 @@ function couponCheck() {
 
 }
 
-function buyTicket(){
+function buyTicketBtn(){
    document.getElementById('bannerSection').classList.add('hidden')
    document.getElementById('couponSection').classList.add('hidden')
 }
@@ -109,7 +102,6 @@ submitBtn.addEventListener('click', function(){
 
 function updateAvailableSeat() {
     let available = getInnerTextById('avaiablSeat')
-    console.log();
     setInnerText('avaiablSeat', available - 1);
 
 }
