@@ -78,10 +78,6 @@ function couponCheck() {
 
 }
 
-function buyTicketBtn() {
-    document.getElementById('bannerSection').classList.add('hidden')
-    document.getElementById('couponSection').classList.add('hidden')
-}
 
 
 const pNumber = document.getElementById('pNumber');
@@ -98,9 +94,10 @@ submitBtn.addEventListener('click', function () {
     document.getElementById('name').value = '';
     document.getElementById('email').value = '';
     document.getElementById('poribahanSection').classList.add('hidden');
-    document.getElementById('footerSection').classList.add('hidden')
-    document.getElementById('headerSection').classList.add('hidden')
-    buyTicketBtn();
+    document.getElementById('footerSection').classList.add('hidden');
+    document.getElementById('headerSection').classList.add('hidden');
+    document.getElementById('bannerSection').classList.add('hidden');
+    document.getElementById('couponSection').classList.add('hidden');
 })
 
 
@@ -126,7 +123,3 @@ function getInnerTextById(id) {
     return InnerText.innerHTML;
 }
 
-function homeFunctionAble() {
-    document.getElementById('bannerSection').classList.remove('hidden')
-    document.getElementById('couponSection').classList.remove('hidden')
-}
