@@ -84,9 +84,10 @@ function couponCheck() {
 
 }
 
-
-
-
+function buyTicket(){
+   document.getElementById('bannerSection').classList.add('hidden')
+   document.getElementById('couponSection').classList.add('hidden')
+}
 
 
 const pNumber = document.getElementById('pNumber');
@@ -96,7 +97,14 @@ pNumber.addEventListener('keyup', function (e) {
         submitBtn.removeAttribute("disabled");
     }
 })
-pNumber.value='';
+
+
+submitBtn.addEventListener('click', function(){
+    pNumber.value='';
+    document.getElementById('name').value='';
+    document.getElementById('email').value='';
+})
+
 
 
 function updateAvailableSeat() {

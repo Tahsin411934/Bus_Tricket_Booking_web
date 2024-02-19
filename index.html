@@ -106,7 +106,7 @@
 
     <main class="">
         <!-- banner start -->
-        <section class="container mx-auto mt-5 mb-28 relative">
+        <section id="bannerSection" class="container mx-auto mt-5 mb-28 relative">
             <div>
                 <div class="bg-gradient-to-r from-[--gradient-color1] to-[--gradient-color2] rounded-[2rem]">
                     <div class="hero  h-[550px] bg-cover bg-bottom rounded-[2rem]  bg-no-repeat grad "
@@ -118,7 +118,7 @@
                                 <p class="mb-5 .inter-font font-normal text-lg">Yes, you can run unit tests and view the
                                     results directly within the
                                     app. The <br> integrated testing features allow for a streamlined ..</p>
-                                <button
+                                <button onclick="buyTicket()"
                                     class="btn text-lg font-bold text-[#030712] bg-[#1DD100] rounded-xl border-none hover:bg-[--navBtn-color] hover:text-[#fff]">Buy
                                     Tickets</button>
                             </div>
@@ -170,7 +170,7 @@
         <!-- banner end -->
 
         <!-- coupon section start -->
-        <section class="container mx-auto mt-12 mb-28 relative">
+        <section id="couponSection" class="container mx-auto mt-12 mb-28 relative">
             <div class="text-4xl font-bold text-center mb-20">
                 <h1>Best offers for you</h1>
             </div>
@@ -466,7 +466,7 @@
                                     <label class="label">
                                         <span class="label-text">Passenger Name*</span>
                                     </label>
-                                    <input type="text" placeholder="Enter your name" class="input input-bordered"
+                                    <input id="name" type="text" placeholder="Enter your name" class="input input-bordered"
                                         required />
                                 </div>
                                 <div class="form-control">
@@ -481,7 +481,7 @@
                                     <label class="label">
                                         <span class="label-text">Email ID</span>
                                     </label>
-                                    <input type="email" placeholder="Enter your email id" class="input input-bordered"
+                                    <input id="email" type="email" placeholder="Enter your email id" class="input input-bordered"
                                         required />
 
                                 </div>
@@ -504,7 +504,7 @@
             <!-- P.H Paribahan section end -->
     </main>
     </div>
-
+<!-- MODEL PART START -->
     <section class="bg-[#F7F8F8] m-0 p-0">
         <!-- Open the modal using ID.showModal() method -->
         <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle  ">
@@ -535,7 +535,7 @@
         </dialog>
     </section>
 
-
+<!-- MODEL PART END -->
 
     <!-- footer start -->
     <footer class=" p-10 bg-[#030712] text-neutral-content ">
