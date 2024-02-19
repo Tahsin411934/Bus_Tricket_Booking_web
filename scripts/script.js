@@ -85,7 +85,7 @@ function buyTicketBtn(){
 
 const pNumber = document.getElementById('pNumber');
 pNumber.addEventListener('keyup', function (e) {
-    if (getInnerTextById('updateTotalPrice') > 0 && e.target.value.length >= 1) {
+    if (parseFloat(getInnerTextById('updateTotalPrice')) > 0 && e.target.value.length >= 1) {
         const submitBtn = document.getElementById("submitBtn");
         submitBtn.removeAttribute("disabled");
     }
@@ -101,7 +101,7 @@ submitBtn.addEventListener('click', function(){
 
 
 function updateAvailableSeat() {
-    let available = getInnerTextById('avaiablSeat')
+    let available = parseInt(getInnerTextById('avaiablSeat')); 
     setInnerText('avaiablSeat', available - 1);
 
 }
