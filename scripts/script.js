@@ -1,10 +1,10 @@
 const seats = document.querySelectorAll("#seat");
 let count = 0;
-let dublicateCheck=[];
+let dublicateCheck = [];
 
 for (const seat of seats) {
     seat.addEventListener("click", function (event) {
-        if (dublicateCheck.includes(seat.innerHTML)===false && count < 4) {
+        if (dublicateCheck.includes(seat.innerHTML) === false && count < 4) {
             seat.classList.add("change_after_seat_click")
             const addSeatPrice = document.getElementById("addSeatPrice");
             const p = document.createElement("p");
@@ -16,28 +16,29 @@ for (const seat of seats) {
             const p2 = document.createElement("p");
             p2.innerHTML = "550";
             addSeatPrice.appendChild(p2);
-    
+
             count++;
-    
+
             setInnerText('updateTotalPrice', 550 * count);
             setInnerText('updateGrandTotal', 550 * count);
             setInnerText('seatCount', count);
             updateAvailableSeat()
             if (count === 4) {
                 couponCheck();
-    
+
             }
-            if (count > 4) {
-                alert("You can not buy more than 4 tickets!");
-            }
-    
-            dublicateCheck.push(seat.innerHTML);   
-    
+
+            dublicateCheck.push(seat.innerHTML);
+
         }
-       else {
-            alert("You can not buy more than 4 tickets!");
-        } 
+        else if (count >= 4) {
+            alert("you can not buy more than 4 tickets");
+        } else {
+            alert("seat already booked");
+        }
+
     })
+
 }
 
 
@@ -59,7 +60,7 @@ function couponCheck() {
 
             }
             else if (coupon.value === 'Couple 20') {
-                let couple20 =parseFloat(getInnerTextById('updateGrandTotal'));
+                let couple20 = parseFloat(getInnerTextById('updateGrandTotal'));
                 setInnerText('updateGrandTotal', couple20 - couple20 * 0.20);
                 setInnerText('updateDiscount', couple20 * 0.20);
                 errorMsg.classList.add('hidden')
@@ -68,7 +69,7 @@ function couponCheck() {
             }
             else {
                 setInnerText('errorMsg', 'you should enter right coupon');
-                
+
             }
             coupon.value = "";
         });
@@ -77,9 +78,9 @@ function couponCheck() {
 
 }
 
-function buyTicketBtn(){
-   document.getElementById('bannerSection').classList.add('hidden')
-   document.getElementById('couponSection').classList.add('hidden')
+function buyTicketBtn() {
+    document.getElementById('bannerSection').classList.add('hidden')
+    document.getElementById('couponSection').classList.add('hidden')
 }
 
 
@@ -92,10 +93,10 @@ pNumber.addEventListener('keyup', function (e) {
 })
 
 
-submitBtn.addEventListener('click', function(){
-    pNumber.value='';
-    document.getElementById('name').value='';
-    document.getElementById('email').value='';
+submitBtn.addEventListener('click', function () {
+    pNumber.value = '';
+    document.getElementById('name').value = '';
+    document.getElementById('email').value = '';
     document.getElementById('poribahanSection').classList.add('hidden');
     document.getElementById('footerSection').classList.add('hidden')
     document.getElementById('headerSection').classList.add('hidden')
@@ -105,7 +106,7 @@ submitBtn.addEventListener('click', function(){
 
 
 function updateAvailableSeat() {
-    let available = parseInt(getInnerTextById('avaiablSeat')); 
+    let available = parseInt(getInnerTextById('avaiablSeat'));
     setInnerText('avaiablSeat', available - 1);
 
 }
@@ -125,7 +126,7 @@ function getInnerTextById(id) {
     return InnerText.innerHTML;
 }
 
-function homeFunctionAble(){
+function homeFunctionAble() {
     document.getElementById('bannerSection').classList.remove('hidden')
     document.getElementById('couponSection').classList.remove('hidden')
 }
