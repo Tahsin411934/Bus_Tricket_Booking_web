@@ -96,6 +96,10 @@ submitBtn.addEventListener('click', function(){
     pNumber.value='';
     document.getElementById('name').value='';
     document.getElementById('email').value='';
+    document.getElementById('poribahanSection').classList.add('hidden');
+    document.getElementById('footerSection').classList.add('hidden')
+    document.getElementById('headerSection').classList.add('hidden')
+    buyTicketBtn();
 })
 
 
